@@ -2,7 +2,6 @@ package com.example.nuhkoca.appglidemodulesample.module;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.support.annotation.NonNull;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.GlideBuilder;
@@ -24,20 +23,17 @@ import okhttp3.OkHttpClient;
 
 import static com.bumptech.glide.load.DecodeFormat.PREFER_ARGB_8888;
 
-/**
- * Created by nuhkoca on 1/13/18.
- */
+import androidx.annotation.NonNull;
 
 @GlideModule
 public class SampleAppGlideModule extends AppGlideModule {
 
     @Override
-    public void applyOptions(Context context, GlideBuilder builder) {
-        int memoryCacheSizeBytes = 1024 * 1024 * 20; // 20mb
+    public void applyOptions(@NonNull Context context, GlideBuilder builder) {
+        int memoryCacheSizeBytes = 1024 * 1024 * 10; // 10mb
         builder.setMemoryCache(new LruResourceCache(memoryCacheSizeBytes));
         builder.setDiskCache(new InternalCacheDiskCacheFactory(context, memoryCacheSizeBytes));
         builder.setDefaultRequestOptions(requestOptions());
-        builder.build(context);
     }
 
     @Override
@@ -60,7 +56,7 @@ public class SampleAppGlideModule extends AppGlideModule {
                 .centerCrop()
                 .encodeFormat(Bitmap.CompressFormat.PNG)
                 .encodeQuality(100)
-                .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+                .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
                 .format(PREFER_ARGB_8888)
                 .skipMemoryCache(false);
     }

@@ -1,10 +1,11 @@
 package com.example.nuhkoca.appglidemodulesample;
 
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import com.example.nuhkoca.appglidemodulesample.databinding.ActivityMainBinding;
 

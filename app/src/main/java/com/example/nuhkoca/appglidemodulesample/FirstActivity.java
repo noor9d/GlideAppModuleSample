@@ -1,10 +1,11 @@
 package com.example.nuhkoca.appglidemodulesample;
 
-import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import com.example.nuhkoca.appglidemodulesample.databinding.ActivityFirstBinding;
 import com.example.nuhkoca.appglidemodulesample.module.GlideApp;
@@ -18,7 +19,7 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         activityFirstBinding = DataBindingUtil.setContentView(this, R.layout.activity_first);
 
-        final String url = "https://upload.wikimedia.org/wikipedia/commons/d/da/Essen_Einkaufsstadt_Hotel_Handelshof_2014.jpg";
+        final String url = "https://source.unsplash.com/random";
 
         GlideApp.with(this)
                 .asBitmap()
